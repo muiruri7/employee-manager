@@ -19,10 +19,12 @@ export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit() {
+    this.updateUserName();
+  }
+
+  updateUserName() {
     const user = this.authService.getCurrentUser();
-    if (user) {
-      this.userName = user.fullName;
-    }
+    this.userName = user ? user.fullName : '';
   }
 
   logout() {
@@ -30,4 +32,3 @@ export class NavbarComponent implements OnInit {
     this.userName = '';
   }
 }
-

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user';
 
 @Injectable({
@@ -9,13 +10,13 @@ export class AuthService {
   private currentUserKey = 'currentUser';
   private usersKey = 'users';
 
-  constructor() {
-    const storedUsers = localStorage.getItem(this.usersKey); // Use localStorage to persist users
+  constructor(private router: Router) { 
+    const storedUsers = localStorage.getItem(this.usersKey);
     if (storedUsers) {
       this.users = JSON.parse(storedUsers);
     } else {
       this.users = this.getDummyUsers();
-      this.saveUsers(); // Save dummy users when the app starts
+      this.saveUsers();
     }
   }
 
@@ -24,12 +25,12 @@ export class AuthService {
   }
 
   private saveUsers() {
-    localStorage.setItem(this.usersKey, JSON.stringify(this.users)); 
+    localStorage.setItem(this.usersKey, JSON.stringify(this.users));
   }
 
   register(user: User): boolean {
     if (this.users.some(u => u.email === user.email)) {
-      return false; 
+      return false;
     }
     user.id = this.users.length ? Math.max(...this.users.map(u => u.id)) + 1 : 1;
     this.users.push(user);
@@ -48,6 +49,7 @@ export class AuthService {
 
   logout() {
     sessionStorage.removeItem(this.currentUserKey);
+    this.router.navigate(['/login']);
   }
 
   getCurrentUser(): User | null {
