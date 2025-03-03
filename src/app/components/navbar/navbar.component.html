@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span class="logo">Employee Manager</span>
+
+  <div class="nav-links">
+    <a mat-button routerLink="/employees">Employees</a>
+    <!-- <a mat-button routerLink="/employee/add">Add Employee</a> -->
+  </div>
+
+  <span class="spacer"></span>
+
+  <span *ngIf="authService.isAuthenticated()" class="user-name">
+    Welcome, {{ userName }}!
+  </span>
+
+  <button mat-button *ngIf="authService.isAuthenticated()" color="warn" (click)="logout()">Logout</button>
+</mat-toolbar>

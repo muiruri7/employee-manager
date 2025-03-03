@@ -4,5 +4,5 @@ export class Employee {
   jobTitle!: string;
   department!: string;
   dateOfJoining!: string;
-  profilePicture?: string; // Base64 Image
+  profilePicture?: string; 
 }

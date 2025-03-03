@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router'; // <-- Import RouterModule
+import { RouterModule } from '@angular/router'; 
 import { NgIf, CommonModule } from '@angular/common';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    RouterModule, // <-- Add RouterModule here
+    RouterModule, 
     NgIf,
     CommonModule
   ]

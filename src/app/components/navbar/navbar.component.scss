@@ -1,0 +1,33 @@
+mat-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  margin-left: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user-name {
+  margin-right: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+button {
+  color: white;
+}

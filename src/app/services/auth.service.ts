@@ -24,12 +24,12 @@ export class AuthService {
   }
 
   private saveUsers() {
-    localStorage.setItem(this.usersKey, JSON.stringify(this.users)); // Persist users permanently
+    localStorage.setItem(this.usersKey, JSON.stringify(this.users)); 
   }
 
   register(user: User): boolean {
     if (this.users.some(u => u.email === user.email)) {
-      return false; // User already exists
+      return false; 
     }
     user.id = this.users.length ? Math.max(...this.users.map(u => u.id)) + 1 : 1;
     this.users.push(user);
@@ -40,7 +40,7 @@ export class AuthService {
   login(email: string, password: string): boolean {
     const user = this.users.find(u => u.email === email && u.password === password);
     if (user) {
-      sessionStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Store logged-in user
+      sessionStorage.setItem(this.currentUserKey, JSON.stringify(user));
       return true;
     }
     return false;

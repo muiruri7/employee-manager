@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard] },
   { path: 'employee/add', component: EmployeeFormComponent, canActivate: [AuthGuard] },
   { path: 'employee/edit/:id', component: EmployeeFormComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'login' } // Redirect unknown routes to login
+  { path: '**', redirectTo: 'login' } 
 ];
 
 @NgModule({
