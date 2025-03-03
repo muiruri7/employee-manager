@@ -8,9 +8,9 @@ import { MaterialModule } from './material.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes, withComponentInputBinding()), // Setup Routing
-    provideHttpClient(), // Provides HTTP Client
-    provideAnimations(), // Enables Angular Animations
-    importProvidersFrom(MaterialModule) // Import Angular Material
+    provideRouter(routes, withComponentInputBinding()), 
+    provideHttpClient(), 
+    provideAnimations(), 
+    importProvidersFrom(MaterialModule) 
   ]
 };
