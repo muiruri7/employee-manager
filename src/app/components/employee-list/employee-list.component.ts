@@ -27,16 +27,18 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
-  displayedColumns: string[] = ['profilePicture', 'fullName', 'jobTitle', 'actions'];
+  displayedColumns: string[] = ['profilePicture', 'fullName', 'jobTitle', 'department', 'actions'];
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     this.employees = this.employeeService.getEmployees();
+    console.log("Employees Loaded in Component:", this.employees);
   }
 
   deleteEmployee(id: number) {
     this.employeeService.deleteEmployee(id);
     this.employees = this.employeeService.getEmployees();
+    console.log("Updated Employee List:", this.employees);
   }
 }

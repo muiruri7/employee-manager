@@ -58,6 +58,8 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
+    console.log("Auth Check:", !!sessionStorage.getItem(this.currentUserKey)); 
     return !!sessionStorage.getItem(this.currentUserKey);
   }
+  
 }
