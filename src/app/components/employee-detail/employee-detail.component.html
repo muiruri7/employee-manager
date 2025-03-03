@@ -1,0 +1,16 @@
+<div class="employee-details-container">
+  <mat-card class="details-card" *ngIf="employee">
+    <mat-card-title>{{ employee.fullName }}</mat-card-title>
+    <mat-card-content>
+      <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" class="profile-image">
+      <p><strong>Job Title:</strong> {{ employee.jobTitle }}</p>
+      <p><strong>Department:</strong> {{ employee.department }}</p>
+      <p><strong>Date of Joining:</strong> {{ employee.dateOfJoining }}</p>
+
+      <div class="action-buttons">
+        <button mat-raised-button color="primary" [routerLink]="['/employee/edit', employee.id]">Edit</button>
+        <button mat-raised-button color="warn" (click)="deleteEmployee(employee.id)">Delete</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

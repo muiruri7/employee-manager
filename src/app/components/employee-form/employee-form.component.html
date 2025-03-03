@@ -1,0 +1,35 @@
+<div class="employee-form-container">
+  <mat-card class="form-card">
+    <mat-card-title>{{ isEditing ? 'Edit Employee' : 'Add Employee' }}</mat-card-title>
+    <mat-card-content>
+      <form (submit)="submitForm()">
+        <mat-form-field class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="employee.fullName" name="fullName" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Job Title</mat-label>
+          <input matInput [(ngModel)]="employee.jobTitle" name="jobTitle" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Department</mat-label>
+          <input matInput [(ngModel)]="employee.department" name="department" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Date of Joining</mat-label>
+          <input matInput [(ngModel)]="employee.dateOfJoining" name="dateOfJoining" type="date" required>
+        </mat-form-field>
+
+        <input type="file" (change)="handleFileUpload($event)">
+        <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" class="profile-preview">
+
+        <button mat-raised-button color="primary" class="full-width" type="submit">
+          {{ isEditing ? 'Update' : 'Save' }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

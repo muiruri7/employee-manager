@@ -1,0 +1,30 @@
+<div class="signup-container">
+  <mat-card class="signup-card">
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-card-content>
+      <form (submit)="register()">
+        <mat-form-field class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="user.fullName" name="fullName" required> <!-- Added name="fullName" -->
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email" name="email" type="email" required> <!-- Added name="email" -->
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="user.password" name="password" type="password" required> <!-- Added name="password" -->
+        </mat-form-field>
+
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+        <button mat-raised-button color="primary" class="full-width" type="submit">Sign Up</button>
+        <p class="text-center">
+          Already have an account? <a routerLink="/login">Login</a>
+        </p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
