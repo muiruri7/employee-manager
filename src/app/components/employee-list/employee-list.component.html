@@ -7,7 +7,7 @@
 
   <mat-card class="employee-list-card">
     <table mat-table [dataSource]="employees" class="mat-elevation-z8">
-      
+
       <ng-container matColumnDef="profilePicture">
         <th mat-header-cell *matHeaderCellDef>Profile</th>
         <td mat-cell *matCellDef="let emp">
@@ -45,8 +45,8 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="['profilePicture', 'fullName', 'jobTitle', 'actions']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['profilePicture', 'fullName', 'jobTitle', 'actions'];"></tr>
+      <tr mat-header-row *matHeaderRowDef="['profilePicture', 'fullName', 'jobTitle', 'department', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['profilePicture', 'fullName', 'jobTitle', 'department', 'actions'];"></tr>
     </table>
   </mat-card>
 </div>
