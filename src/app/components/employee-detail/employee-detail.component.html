@@ -2,15 +2,42 @@
   <mat-card class="details-card" *ngIf="employee">
     <mat-card-title>{{ employee.fullName }}</mat-card-title>
     <mat-card-content>
-      <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" class="profile-image">
-      <p><strong>Job Title:</strong> {{ employee.jobTitle }}</p>
-      <p><strong>Department:</strong> {{ employee.department }}</p>
-      <p><strong>Date of Joining:</strong> {{ employee.dateOfJoining }}</p>
+      <div class="profile-section">
+        <img *ngIf="employee.profilePicture" [src]="employee.profilePicture" class="profile-image">
+      </div>
+
+      <div class="info-section">
+        <p><strong>Job Title:</strong> {{ employee.jobTitle }}</p>
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+        <p><strong>Date of Joining:</strong> {{ employee.dateOfJoining }}</p>
+      </div>
+
+      <h3>Performance Reviews</h3>
+      <mat-list *ngIf="employee.reviews && employee.reviews.length > 0">
+        <mat-list-item *ngFor="let review of employee.reviews">
+          <mat-icon color="accent">comment</mat-icon> {{ review }}
+        </mat-list-item>
+      </mat-list>
+      <p *ngIf="!employee.reviews || employee.reviews.length === 0" class="no-reviews">
+        No reviews yet. Be the first to add one!
+      </p>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Add a Review</mat-label>
+        <textarea matInput [(ngModel)]="newReview" placeholder="Write your feedback..." rows="3"></textarea>
+      </mat-form-field>
 
       <div class="action-buttons">
-        <button mat-raised-button color="primary" [routerLink]="['/employee/edit', employee.id]">Edit</button>
-        <button mat-raised-button color="warn" (click)="deleteEmployee(employee.id)">Delete</button>
+        <button mat-raised-button color="primary" (click)="addReview()" [disabled]="!newReview.trim()">
+          Submit Review
+        </button>
+        <button mat-raised-button color="accent" [routerLink]="['/employee/edit', employee.id]">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteEmployee(employee.id)">
+          Delete
+        </button>
       </div>
     </mat-card-content>
-  </mat-card>
+  </mat-card>  
 </div>

@@ -5,4 +5,5 @@ export class Employee {
   department!: string;
   dateOfJoining!: string;
   profilePicture?: string; 
+reviews: any;
 }

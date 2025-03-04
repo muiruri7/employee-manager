@@ -2,11 +2,15 @@
   <mat-toolbar color="primary">
     <span>Employees</span>
     <span class="spacer"></span>
+    <mat-form-field appearance="outline">
+      <mat-label>Search Employees</mat-label>
+      <input matInput (input)="applyFilter($event)" placeholder="Search by name, job title, or department">
+    </mat-form-field>  
     <button mat-raised-button color="accent" routerLink="/employee/add">+ Add Employee</button>
   </mat-toolbar>
 
   <mat-card class="employee-list-card">
-    <table mat-table [dataSource]="employees" class="mat-elevation-z8">
+    <table mat-table [dataSource]="filteredEmployees" class="mat-elevation-z8">
 
       <ng-container matColumnDef="profilePicture">
         <th mat-header-cell *matHeaderCellDef>Profile</th>

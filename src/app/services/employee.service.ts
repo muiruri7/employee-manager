@@ -15,8 +15,14 @@ export class EmployeeService {
 
   private getDummyEmployees(): Employee[] {
     return [
-      { id: 1, fullName: 'John Doe', jobTitle: 'Software Engineer', department: 'IT', dateOfJoining: '2022-01-15', profilePicture: '' },
-      { id: 2, fullName: 'Jane Smith', jobTitle: 'HR Manager', department: 'Human Resources', dateOfJoining: '2021-07-22', profilePicture: '' }
+      {
+        id: 1, fullName: 'John Doe', jobTitle: 'Software Engineer', department: 'IT', dateOfJoining: '2022-01-15', profilePicture: '',
+        reviews: undefined
+      },
+      {
+        id: 2, fullName: 'Jane Smith', jobTitle: 'HR Manager', department: 'Human Resources', dateOfJoining: '2021-07-22', profilePicture: '',
+        reviews: undefined
+      }
     ];
   }
 
