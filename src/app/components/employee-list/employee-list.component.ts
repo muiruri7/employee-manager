@@ -9,7 +9,7 @@ import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,7 +17,6 @@ import { MatInput, MatInputModule } from '@angular/material/input';
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss'],
   imports: [
-
     MatTableModule,
     MatCardModule,
     MatButtonModule,
@@ -26,8 +25,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
     RouterModule, 
     NgIf,
     CommonModule,
-    MatFormFieldModule,
-    MatInput,
+    MatFormFieldModule, MatInput,
   ]
 })
 export class EmployeeListComponent implements OnInit {
